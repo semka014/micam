@@ -30,6 +30,8 @@ docker compose up -d
 
 ### [Go2rtc](https://github.com/AlexxIT/go2rtc)
 
+> 你也可以选择通过[HAOS加载项](https://github.com/AlexxIT/hassio-addons)来部署Go2rtc
+
 1. Open Go2rtc WebUI / 访问Go2rtc网页: `http://192.168.1.xx:1984`
 2. Config empty streams / 配置空视频流:
    ```yaml
