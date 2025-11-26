@@ -3,12 +3,7 @@ services:
   # https://github.com/XiaoMi/xiaomi-miloco
   miloco:
     container_name: miloco
-    # image: ghcr.nju.edu.cn/xiaomi/miloco-backend
-    build:
-      # Modify miloco image to obtain high-definition stream
-      dockerfile_inline: |
-        FROM ghcr.nju.edu.cn/xiaomi/miloco-backend
-        RUN sed -i 's/= MIoTCameraVideoQuality.LOW,/= MIoTCameraVideoQuality.HIGH,/' miot_kit/miot/camera.py
+    image: ghcr.nju.edu.cn/miiot/miloco:main # Modified image to obtain high-definition stream
     network_mode: host
     expose:
       - ${MILOCO_PORT:-8000}
