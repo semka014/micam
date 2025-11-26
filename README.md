@@ -13,7 +13,7 @@ docker compose up -d
 
 > 此命令会通过docker部署Miloco、Go2rtc及RTSP转发服务。如果需要添加多个摄像头，需要编辑`docker-compose.yml`运行多个micam服务。
 >
-> 部署的Miloco为基础版，不带AI引擎，无GPU算力要求，大部分机器都能运行，但目前不支持arm架构。
+> 部署的Miloco为基础版，不带AI引擎，无GPU算力要求，大部分机器都能运行。本项目基于官方镜像修改，添加了arm64支持，并默认获取高清流和音频流。
 
 
 ## 💻 Usage / 使用

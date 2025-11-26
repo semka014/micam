@@ -3,12 +3,10 @@ services:
   # https://github.com/XiaoMi/xiaomi-miloco
   miloco:
     container_name: miloco
-    image: ghcr.nju.edu.cn/miiot/miloco:main # Modified image to obtain high-definition stream
+    # image: ghcr.nju.edu.cn/xiaomi/miloco-backend # Official image
+    image: ghcr.nju.edu.cn/miiot/miloco:main # Modified image to using HD stream
     network_mode: host
-    expose:
-      - ${MILOCO_PORT:-8000}
     environment:
-      BACKEND_HOST: ${MILOCO_HOST:-0.0.0.0}
       BACKEND_PORT: ${MILOCO_PORT:-8000}
       BACKEND_LOG_LEVEL: ${MILOCO_LOG_LEVEL:-warning}
       TZ: ${TZ:-Asia/Shanghai}
@@ -49,7 +47,7 @@ services:
   # More Cameras ...
   micam2:
     <<: *micam
-    scale: 0 # disabled
+    scale: 0 # Disabled by default, set 1 to enable
     environment:
       <<: *micam_envs
       CAMERA_ID: ${CAMERA_2_ID}
